@@ -1,0 +1,43 @@
+.partnerships {
+    background-color: var(--c-white);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.partners-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--c-text-light);
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.partners-carousel {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    opacity: 0.6;
+}
+
+.partner-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--c-text-light);
+    padding: 1rem;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.partner-logo:hover {
+    filter: grayscale(0%);
+    color: var(--c-primary);
+    transform: scale(1.1);
+}
+
+.partner-name {
+    display: block;
+}
