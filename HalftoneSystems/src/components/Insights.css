@@ -57,20 +57,18 @@
 }
 
 .insights-footer {
-    text-align: center;
-    margin-top: 3rem;
+    text-align: right;
+    margin-top: 2.5rem;
 }
 
+/* Match the 'View All Work' text link style in SuccessStories */
 .insights .view-all-link {
-    display: inline-block;
-    padding: 12px 32px;
-    background: var(--c-primary);
-    color: #fff;
-    border-radius: 4px;
+    color: var(--c-primary);
     font-weight: 600;
-    transition: background 0.2s;
+    transition: color 0.2s;
+    font-size: 1rem;
 }
 
 .insights .view-all-link:hover {
-    background: var(--c-primary-hover);
+    color: var(--c-primary-hover);
 }

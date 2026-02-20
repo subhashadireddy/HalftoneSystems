@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Globe, ChevronDown, Menu, X } from 'lucide-react';
+import { Search, Globe, ChevronDown, Menu, X, Phone } from 'lucide-react';
 import './Navbar.css';
 
 export const Navbar = () => {
@@ -7,9 +7,7 @@ export const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 50);
-        };
+        const handleScroll = () => setIsScrolled(window.scrollY > 50);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -48,15 +46,12 @@ export const Navbar = () => {
                 { name: 'Healthcare', href: '#healthcare' },
                 { name: 'Pharmaceutical', href: '#pharmaceutical' },
                 { name: 'Life Sciences', href: '#life-sciences' },
-                { name: 'Medical', href: '#medical' },
                 { name: 'Retail', href: '#retail' },
                 { name: 'Travel & Tourism', href: '#travel-tourism' },
                 { name: 'Education & Research', href: '#education-research' },
-                { name: 'Services Industry', href: '#services-industry' },
                 { name: 'Media & Entertainment', href: '#media-entertainment' }
             ]
         },
-        // Insights links updated to match actual content
         {
             name: 'Insights',
             href: '#insights',
@@ -66,7 +61,6 @@ export const Navbar = () => {
                 { name: 'Closing Tech Skills Gap', href: '#closing-the-tech-skills-gap-in-2025' }
             ]
         },
-        // Careers link mapped to Success Stories as requested
         {
             name: 'Careers',
             href: '#success-stories',
@@ -78,9 +72,7 @@ export const Navbar = () => {
         },
     ];
 
-    const handleLinkClick = () => {
-        setIsMobileMenuOpen(false);
-    };
+    const handleLinkClick = () => setIsMobileMenuOpen(false);
 
     const scrollToTop = (e) => {
         e.preventDefault();
@@ -90,50 +82,63 @@ export const Navbar = () => {
 
     return (
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-            <div className="container navbar-container">
-                <div className="navbar-logo">
-                    <a href="#" onClick={scrollToTop}>
-                        <img src="/src/assets/HS.png" alt="Halftone Systems" style={{ height: '40px', width: 'auto' }} />
-                    </a>
-                </div>
 
-                <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
-                    {navLinks.map((link) => (
-                        <div key={link.name} className="nav-item">
-                            <a href={link.href} className="nav-link" onClick={handleLinkClick}>
-                                {link.name} <ChevronDown size={14} className="dropdown-icon" />
-                            </a>
-                            <div className="dropdown-menu">
-                                {link.dropdown.map((item) => (
-                                    <a
-                                        key={item.name}
-                                        href={item.href}
-                                        className="dropdown-item"
-                                        onClick={handleLinkClick}
-                                    >
-                                        {item.name}
-                                    </a>
-                                ))}
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            {/* ── ROW 1: Brand + Utility actions ── */}
+            <div className="navbar-top">
+                <div className="container navbar-top-inner">
+                    {/* Logo / Brand */}
+                    <div className="navbar-logo">
+                        <a href="#" onClick={scrollToTop}>
+                            <img src="/src/assets/HS.png" alt="Halftone Systems" style={{ height: '38px', width: 'auto' }} />
+                        </a>
+                    </div>
 
-                <div className="navbar-actions">
-                    <button className="icon-btn" aria-label="Search"><Search size={20} /></button>
-                    <button className="icon-btn" aria-label="Language"><Globe size={20} /></button>
-                    <a
-                        href="#contact"
-                        className="btn btn-primary contact-btn"
-                        onClick={handleLinkClick}
-                    >
-                        Contact Us
-                    </a>
-                    <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-                        {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    {/* Utility: Search, Globe, Contact + Mobile toggle */}
+                    <div className="navbar-utility">
+                        <button className="icon-btn" aria-label="Search"><Search size={18} /></button>
+                        <button className="icon-btn" aria-label="Language"><Globe size={18} /></button>
+                        <a href="#contact" className="btn btn-primary contact-btn" onClick={handleLinkClick}>
+                            <Phone size={14} style={{ marginRight: '6px' }} /> Contact Us
+                        </a>
+                        <button className="mobile-toggle" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+                        </button>
+                    </div>
                 </div>
             </div>
+
+            {/* ── ROW 2: Navigation links with dividers ── */}
+            <div className="navbar-bottom">
+                <div className="container">
+                    <div className={`navbar-links ${isMobileMenuOpen ? 'active' : ''}`}>
+                        {navLinks.map((link, idx) => (
+                            <React.Fragment key={link.name}>
+                                {idx > 0 && <span className="nav-divider" />}
+                                <div className="nav-item">
+                                    <a href={link.href} className="nav-link" onClick={handleLinkClick}>
+                                        {link.name} <ChevronDown size={13} className="dropdown-icon" />
+                                    </a>
+                                    <div className={`dropdown-menu ${link.name === 'What We Do' ? 'grid-3col' :
+                                            link.name === 'Industries' ? 'grid-2col' : ''
+                                        }`}>
+                                        {link.dropdown.map((item) => (
+                                            <a
+                                                key={item.name}
+                                                href={item.href}
+                                                className="dropdown-item"
+                                                onClick={handleLinkClick}
+                                            >
+                                                {item.name}
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            </React.Fragment>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
         </nav>
     );
 };

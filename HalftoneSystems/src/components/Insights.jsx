@@ -13,10 +13,10 @@ export const Insights = () => {
     return (
         <section id="insights" className="insights section-padding" style={{ position: 'relative' }}>
             <div className="container">
-                <div className="section-header">
+                <div className="section-header reveal">
                     <h2 className="section-title section-title-dark">Latest Insights</h2>
                 </div>
-                <div className="insights-grid">
+                <div className="insights-grid reveal-group">
                     {insights.map((item, i) => {
                         const slug = item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
                         return (

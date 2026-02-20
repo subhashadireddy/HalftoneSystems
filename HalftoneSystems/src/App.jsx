@@ -9,8 +9,11 @@ import { Partnerships } from './components/Partnerships';
 import { Insights } from './components/Insights';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { useScrollReveal } from './hooks/useScrollReveal';
 
 function App() {
+  useScrollReveal();
+
   return (
     <div className="app">
       <Navbar />

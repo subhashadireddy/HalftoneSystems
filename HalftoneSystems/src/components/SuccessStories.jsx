@@ -30,11 +30,11 @@ export const SuccessStories = () => {
     return (
         <section id="success-stories" className="stories section-padding bg-light">
             <div className="container">
-                <div className="section-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
+                <div className="section-header reveal" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
                     <h2 className="section-title section-title-dark">Success Stories</h2>
                     <a href="#" className="view-all-link">View All Work &rarr;</a>
                 </div>
-                <div className="stories-grid">
+                <div className="stories-grid reveal-group">
                     {stories.map((story, i) => {
                         const slug = story.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
                         const Icon = story.icon;

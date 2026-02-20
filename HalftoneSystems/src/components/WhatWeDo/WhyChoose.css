@@ -24,14 +24,14 @@
 .reason-card:hover {
     transform: translateY(-5px);
     background: #ffffff;
-    border-color: var(--color-primary);
-    box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+    border-color: var(--c-primary);
+    box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.15);
 }
 
 .reason-icon-wrapper {
     margin-bottom: 1.5rem;
-    color: var(--color-primary);
-    background: rgba(99, 102, 241, 0.1);
+    color: var(--c-primary);
+    background: rgba(124, 58, 237, 0.1);
     padding: 12px;
     border-radius: 12px;
 }

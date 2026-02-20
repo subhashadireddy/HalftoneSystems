@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { CurveSeparator } from './SectionSeparator';
+import { HeroLogo3D } from './HeroLogo3D';
 
 import './Hero.css';
 
@@ -28,10 +29,14 @@ export const Hero = () => {
                         </div>
                     </div>
 
+                    {/* 3D Logo — right column */}
+                    <div className="hero-3d-logo">
+                        <HeroLogo3D />
+                    </div>
 
                 </div>
             </div>
-            <CurveSeparator fill="#111111" height="80px" inverted={true} />
+            <CurveSeparator fill="#5B21B6" height="80px" inverted={true} />
         </section>
     );
 };

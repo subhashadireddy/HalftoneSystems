@@ -1,22 +1,53 @@
 .hero {
     position: relative;
-    height: 90vh;
-    min-height: 600px;
-    background-color: var(--c-dark);
-    /* Image removed */
+    min-height: 100vh;
+    background-color: #ffffff;
+    overflow: hidden;
     display: flex;
     align-items: center;
-    color: var(--c-white);
+    color: var(--c-text-main);
+    padding-top: var(--header-height);
+}
+
+/* Violet glow effects */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(124, 58, 237, 0.15) 0%, transparent 70%);
+    z-index: 0;
+    animation: glowPulse 6s ease-in-out infinite alternate;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    z-index: 0;
+    animation: glowPulse 8s ease-in-out 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: scale(1.15);
+        opacity: 1;
+    }
 }
 
 .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 82, 204, 0.4) 100%);
-    z-index: 1;
+    display: none;
 }
 
 .hero-container {
@@ -50,7 +81,7 @@
 }
 
 .hero-title .highlight {
-    color: var(--c-accent);
+    color: var(--c-primary);
 }
 
 .hero-subtitle {
@@ -99,4 +130,22 @@
     .hero-btn {
         width: 100%;
     }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-3d-logo {
+        display: none;
+    }
+}
+
+/* ─── 3D Logo container (right side) ─── */
+.hero-3d-logo {
+    width: 100%;
+    height: 480px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -6,12 +6,13 @@ const SpecCard = ({ icon: Icon, title, subtitle, features }) => {
     const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
     return (
         <div id={slug} className="spec-card">
+            {/* Violet header area with icon + title inline */}
+            <div className="spec-card-top">
+                <Icon size={24} className="spec-header-icon" />
+                <span className="spec-header-title">{title}</span>
+            </div>
             <div className="spec-card-content">
-                <div className="spec-header">
-                    <Icon size={40} className="spec-icon" />
-                    <h3 className="spec-title">{title}</h3>
-                    <p className="spec-subtitle">{subtitle}</p>
-                </div>
+                <p className="spec-subtitle">{subtitle}</p>
                 <ul className="spec-features">
                     {features.map((f, i) => (
                         <li key={i}>{f}</li>
@@ -62,11 +63,11 @@ export const SpecializedServices = () => {
     return (
         <section id="specialized-services" className="specialized section-padding bg-dark-alt">
             <div className="container">
-                <div className="section-header text-center">
+                <div className="section-header text-center reveal">
                     <h2 className="section-title section-title-dark">SPECIALIZED SERVICES</h2>
                     <p className="section-subtitle">Expert advisory, talent, and product development — your complete technology partner.</p>
                 </div>
-                <div className="spec-grid">
+                <div className="spec-grid reveal-group">
                     {services.map((s, i) => <SpecCard key={i} {...s} />)}
                 </div>
             </div>

@@ -202,8 +202,19 @@
 
 /* Global Presence */
 .global-presence {
-    border-top: 1px solid #e5e7eb;
     padding-top: 4rem;
+}
+
+/* Violet narrow partition line between Global Presence and footer */
+.global-presence::after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 3px;
+    background: var(--c-primary);
+    margin: 4rem auto 0;
+    border-radius: 0;
+    /* Sharp endings */
 }
 
 .presence-desc {

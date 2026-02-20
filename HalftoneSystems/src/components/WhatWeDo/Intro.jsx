@@ -3,7 +3,7 @@ import './Intro.css';
 
 export const Intro = () => {
     return (
-        <section id="intro" className="intro section-padding bg-dark">
+        <section id="intro" className="intro section-padding">
             <div className="container text-center">
                 <h2 className="section-title">WHAT WE DO</h2>
                 <h3 className="intro-heading">Transforming Businesses Through Intelligent Technology</h3>
