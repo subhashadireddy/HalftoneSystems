@@ -1,0 +1,23 @@
+.intro {
+    background-color: var(--color-bg);
+    padding-bottom: 2rem;
+    /* Reduced bottom padding as it leads into WhyChoose */
+}
+
+.intro-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(to right, #fff, #a5b4fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.intro-text {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+}
